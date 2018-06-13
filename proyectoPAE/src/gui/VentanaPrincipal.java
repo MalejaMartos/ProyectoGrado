@@ -175,7 +175,7 @@ public class VentanaPrincipal extends JFrame {
      * @param evt 
      */
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        System.exit(0);
+        Runtime.getRuntime().exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**

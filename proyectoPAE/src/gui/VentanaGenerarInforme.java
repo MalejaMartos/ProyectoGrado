@@ -57,7 +57,7 @@ public class VentanaGenerarInforme extends JFrame {
     public VentanaGenerarInforme() {
         initComponents();
         this.getContentPane().setBackground(Color.white);
-        editarDate1();;
+        editarDate1();
         editarDate2();
     }
 
