@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  * @author Mateo Cano Alfonso
  * @author Juan Jeferson Alape
  */
-public class HiloVerificarHuella implements Runnable {
+public class hiloVerificarHuella implements Runnable {
 
     // Varible que permite establecer las capturas de la huellas, para determina
     // sus caracteristicas
@@ -54,7 +54,7 @@ public class HiloVerificarHuella implements Runnable {
      * Constructor de la clase
      * @param imagenHuella 
      */
-    public HiloVerificarHuella(JLabel imagenHuella) {
+    public hiloVerificarHuella(JLabel imagenHuella) {
 
         this.imagenHuella = imagenHuella;
         instituto = new institutoMontenegro();
@@ -65,7 +65,7 @@ public class HiloVerificarHuella implements Runnable {
     public void run() {
 
         try {
-            ProcesarCaptura(sample);
+            procesarCaptura(sample);
         } catch (IOException | ParseException ex) {
             System.err.println("Error");
         }
@@ -75,7 +75,7 @@ public class HiloVerificarHuella implements Runnable {
         this.sample = sample;
     }
 
-    public void ProcesarCaptura(DPFPSample sample) throws IOException, ParseException {
+    public void procesarCaptura(DPFPSample sample) throws IOException, ParseException {
 
         // Procesar la muestra de la huella y crear un conjunto de
         // características con el propósito de verificacion.
@@ -93,8 +93,8 @@ public class HiloVerificarHuella implements Runnable {
                 setTemplate(Reclutador.getTemplate());
 
                 // Dibuja la huella dactilar capturada.
-                Image image = CrearImagenHuella(sample);
-                DibujarHuella(image);
+                Image image = crearImagenHuella(sample);
+                dibujarHuella(image);
 
                 //identifica despues de capturar la huella
                 boolean respuesta = identificarHuella();
@@ -128,11 +128,11 @@ public class HiloVerificarHuella implements Runnable {
         }
     }
 
-    public Image CrearImagenHuella(DPFPSample sample) {
+    public Image crearImagenHuella(DPFPSample sample) {
         return DPFPGlobal.getSampleConversionFactory().createImage(sample);
     }
 
-    public void DibujarHuella(Image image) {
+    public void dibujarHuella(Image image) {
         imagenHuella.setIcon(new ImageIcon(
                 image.getScaledInstance(imagenHuella.getWidth(), imagenHuella.getHeight(), Image.SCALE_DEFAULT)));
     }

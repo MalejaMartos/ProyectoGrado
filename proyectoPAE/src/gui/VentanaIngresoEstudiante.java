@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import logica.HiloVerificarHuella;
+import logica.hiloVerificarHuella;
 
 /**
  * @author Maria Alejandra Martos Diaz
@@ -27,7 +27,7 @@ import logica.HiloVerificarHuella;
 public class VentanaIngresoEstudiante extends JFrame {
     //para poder hacer el ingreso
 
-    HiloVerificarHuella hiloVerificarHuella;
+    hiloVerificarHuella hiloVerificarHuella;
 
     public static VentanaIngresoEstudiante ventana;
     Connection cn;
@@ -42,7 +42,7 @@ public class VentanaIngresoEstudiante extends JFrame {
         initComponents();
         
         this.getContentPane().setBackground(Color.white);
-        hiloVerificarHuella = new HiloVerificarHuella(jLabelImagenHuella);
+        hiloVerificarHuella = new hiloVerificarHuella(jLabelImagenHuella);
 
     }
 
