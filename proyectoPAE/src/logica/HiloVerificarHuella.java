@@ -30,7 +30,29 @@ import javax.swing.JOptionPane;
  * @author Juan Jeferson Alape
  */
 public class HiloVerificarHuella implements Runnable {
+    /**
+     * If any <code>PropertyChangeListeners</code> have been registered, the
+     * <code>changeSupport</code> field describes them.
+     *
+     * @serial
+     * @since 1.2
+     * @see #addPropertyChangeListener
+     * @see #removePropertyChangeListener
+     * @see #firePropertyChange
+     */
+    private PropertyChangeSupport changeSupport;
 
+    private InstitutoMontenegro instituto;
+    private Connection cn;
+    private PreparedStatement pst;
+    private ResultSet rst;
+    private String documento;
+    private String nombre;
+
+    private JLabel imagenHuella;
+    public DPFPFeatureSet featuresinscripcion;
+    public DPFPFeatureSet featuresverificacion;
+    private DPFPSample sample;
     // Varible que permite establecer las capturas de la huellas, para determina
     // sus caracteristicas
     // y poder estimar la creacion de un template de la huella para luego poder
@@ -279,27 +301,5 @@ public class HiloVerificarHuella implements Runnable {
         return objectLock;
     }
 
-    /**
-     * If any <code>PropertyChangeListeners</code> have been registered, the
-     * <code>changeSupport</code> field describes them.
-     *
-     * @serial
-     * @since 1.2
-     * @see #addPropertyChangeListener
-     * @see #removePropertyChangeListener
-     * @see #firePropertyChange
-     */
-    private PropertyChangeSupport changeSupport;
-
-    private final InstitutoMontenegro instituto;
-    private Connection cn;
-    private PreparedStatement pst;
-    private ResultSet rst;
-    private String documento;
-    private String nombre;
-
-    private JLabel imagenHuella;
-    public DPFPFeatureSet featuresinscripcion;
-    public DPFPFeatureSet featuresverificacion;
-    private DPFPSample sample;
+    
 }

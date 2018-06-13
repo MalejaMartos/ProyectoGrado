@@ -21,12 +21,6 @@ public class DataConnection {
 	private static final String url = "jdbc:mysql://localhost/" + dataBase;
 	private static Connection connection = null;
 
-        /**
-         * Constructor vacio de la clase dataConnection
-         */
-	public DataConnection() {
-		super();
-	}
 
         /**
          * Método que realiza la conexión a la base de datos

@@ -37,6 +37,15 @@ import javax.swing.SwingUtilities;
  */
 public class HiloGuardarHuella implements Runnable {
 
+    private InstitutoMontenegro instituto;
+    private Connection cn;
+    private PreparedStatement pst;
+    private ResultSet rst;
+    private JLabel imagenHuella;
+    ByteArrayInputStream datosHuella;
+    Integer tamanoHuella;
+    DPFPFeatureExtraction extractor = DPFPGlobal.getFeatureExtractionFactory().createFeatureExtraction();
+
     // Varible que permite iniciar el dispositivo de lector de huella conectado
     // con sus distintos metodos.
     private final DPFPCapture Lector = DPFPGlobal.getCaptureFactory().createCapture();
@@ -267,13 +276,5 @@ public class HiloGuardarHuella implements Runnable {
 
     }
 
-    private final InstitutoMontenegro instituto;
-    private Connection cn;
-    private PreparedStatement pst;
-    private ResultSet rst;
-    private JLabel imagenHuella;
-    ByteArrayInputStream datosHuella;
-    Integer tamanoHuella;
-    DPFPFeatureExtraction extractor = DPFPGlobal.getFeatureExtractionFactory().createFeatureExtraction();
-
+    
 }
