@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import logica.dataConnection;
+import logica.DataConnection;
 
 /**
  *
@@ -300,7 +300,7 @@ public class VentanaModificarDatosAdmin extends JFrame {
         char[] arrayC1= jPasswordFieldNuevo.getPassword();
         String passwordNuevo = new String(arrayC1);
         
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
 			try {
 
 				pst = cn.prepareStatement(
@@ -335,7 +335,7 @@ public class VentanaModificarDatosAdmin extends JFrame {
          try {
             // TODO add your handling code here:
             String nickname = jTextFieldNombreABuscar.getText();
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
             pst = cn.prepareStatement(
                     "select nickname, password,nombres, apellidos from administrador where nickname=?");
             pst.setString(1, nickname);

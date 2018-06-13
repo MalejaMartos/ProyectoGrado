@@ -12,7 +12,7 @@ import java.sql.Statement;
  * Clase que permite realizar la conexión a la Base de Datos
  * @author Mateo
  */
-public class dataConnection {
+public class DataConnection {
 
 	
 	private static final String user = "root";
@@ -24,7 +24,7 @@ public class dataConnection {
         /**
          * Constructor vacio de la clase dataConnection
          */
-	public dataConnection() {
+	public DataConnection() {
 		super();
 	}
 

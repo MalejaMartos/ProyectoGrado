@@ -24,9 +24,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
-import logica.hiloGuardarHuella;
-import logica.dataConnection;
-import logica.institutoMontenegro;
+import logica.HiloGuardarHuella;
+import logica.DataConnection;
+import logica.InstitutoMontenegro;
 
 /**
  *
@@ -55,7 +55,7 @@ public class VentanaGestionEstudiante extends JFrame {
     /**
      * 
      */
-    institutoMontenegro instituto;
+    InstitutoMontenegro instituto;
 
     /**
      * 
@@ -75,7 +75,7 @@ public class VentanaGestionEstudiante extends JFrame {
     /**
      * 
      */
-    hiloGuardarHuella hilo;
+    HiloGuardarHuella hilo;
 
     static ByteArrayInputStream datosHuella;
     static Integer tamanoHuella;
@@ -98,7 +98,7 @@ public class VentanaGestionEstudiante extends JFrame {
      * Creates new form VentanaBusquedaEstudiante
      */
     public VentanaGestionEstudiante() {
-        instituto=new institutoMontenegro();
+        instituto=new InstitutoMontenegro();
         estadoGuardar = 0;//estado que indica que se va a guardar un estdiante nuevo
         modelo.addColumn("Documento");
         modelo.addColumn("Nombres");
@@ -108,7 +108,7 @@ public class VentanaGestionEstudiante extends JFrame {
         initComponents();
         this.getContentPane().setBackground(Color.white);
         jTableResultado.setModel(modelo);
-        hilo = new hiloGuardarHuella(jLabelImagenHuella, jButtonGuardar);
+        hilo = new HiloGuardarHuella(jLabelImagenHuella, jButtonGuardar);
 
     }
 
@@ -719,7 +719,7 @@ public class VentanaGestionEstudiante extends JFrame {
                 String nombres = (String) modelo.getValueAt(filaseleccionada, 1);
                 String apellidos = (String) modelo.getValueAt(filaseleccionada, 2);
 
-                cn = dataConnection.conexion();
+                cn = DataConnection.conexion();
                 pst = cn.prepareStatement(
                         "select grado,grupo,zonaAlumno,jornada from estudiante WHERE documento=?");
                 pst.setString(1, documento);
@@ -767,7 +767,7 @@ public class VentanaGestionEstudiante extends JFrame {
             int eleccion = JOptionPane.showConfirmDialog(null, "Seguro desea eliminar el estudiante", "CONFIRMAR", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (eleccion == JOptionPane.YES_OPTION) {
                 String documento = (String) modelo.getValueAt(filaseleccionada, 0);
-                cn = dataConnection.conexion();
+                cn = DataConnection.conexion();
                 try {
                     pst = cn.prepareStatement("delete from estudiante where documento=?");
                     pst.setString(1, documento);
@@ -883,7 +883,7 @@ public class VentanaGestionEstudiante extends JFrame {
         if (atributo.length() < 11) {
             try {
 
-                cn = dataConnection.conexion();
+                cn = DataConnection.conexion();
                 pst = cn.prepareStatement(
                         "select documento,nombres,apellidos,huella from estudiante WHERE documento like ?");
 
@@ -942,7 +942,7 @@ public class VentanaGestionEstudiante extends JFrame {
     public void buscarApellidos(String atributo) throws Exception {
 
         if (atributo != null) {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
             pst = cn.prepareStatement(
                     "select documento,nombres,apellidos from estudiante WHERE apellidos like ?");
             pst.setString(1, "%" + atributo + "%");

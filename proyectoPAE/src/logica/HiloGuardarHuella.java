@@ -35,7 +35,7 @@ import javax.swing.SwingUtilities;
  *
  * @author Mateo
  */
-public class hiloGuardarHuella implements Runnable {
+public class HiloGuardarHuella implements Runnable {
 
     // Varible que permite iniciar el dispositivo de lector de huella conectado
     // con sus distintos metodos.
@@ -54,8 +54,8 @@ public class hiloGuardarHuella implements Runnable {
     public DPFPFeatureSet featuresinscripcion;
     private JButton botonGuardar;
 
-    public hiloGuardarHuella(JLabel imagenHuella, JButton botonGuardar) {
-        instituto = new institutoMontenegro();
+    public HiloGuardarHuella(JLabel imagenHuella, JButton botonGuardar) {
+        instituto = new InstitutoMontenegro();
         this.imagenHuella = imagenHuella;
         this.botonGuardar = botonGuardar;
         Iniciar();
@@ -267,7 +267,7 @@ public class hiloGuardarHuella implements Runnable {
 
     }
 
-    private final institutoMontenegro instituto;
+    private final InstitutoMontenegro instituto;
     private Connection cn;
     private PreparedStatement pst;
     private ResultSet rst;

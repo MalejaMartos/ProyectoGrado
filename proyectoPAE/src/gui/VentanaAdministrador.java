@@ -22,8 +22,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.JToolBar.Separator;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import logica.dataConnection;
-import logica.institutoMontenegro;
+import logica.DataConnection;
+import logica.InstitutoMontenegro;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -41,7 +41,7 @@ public class VentanaAdministrador extends JFrame {
     private PreparedStatement pst;
     private Connection cn;
     private ResultSet result;
-    private institutoMontenegro instituto;
+    private InstitutoMontenegro instituto;
 
     public static VentanaAdministrador ventana;
 
@@ -49,8 +49,8 @@ public class VentanaAdministrador extends JFrame {
      * Creates new form VentanaAdministrador
      */
     public VentanaAdministrador() {
-        instituto = new institutoMontenegro();
-        cn = dataConnection.conexion();
+        instituto = new InstitutoMontenegro();
+        cn = DataConnection.conexion();
         initComponents();
         this.getContentPane().setBackground(Color.white);
 
@@ -370,7 +370,7 @@ public class VentanaAdministrador extends JFrame {
         documento = doc[0];
 
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
             pst = cn.prepareStatement("insert into estudiante (documento,nombres,apellidos,grado,grupo,"
                     + "zonaAlumno,jornada) values (?,?,?,?,?,?,?)");
 

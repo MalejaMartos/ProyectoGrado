@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  * @author Mateo Cano Alfonso
  * @author Juan Jeferson Alape
  */
-public class hiloVerificarHuella implements Runnable {
+public class HiloVerificarHuella implements Runnable {
 
     // Varible que permite establecer las capturas de la huellas, para determina
     // sus caracteristicas
@@ -54,10 +54,10 @@ public class hiloVerificarHuella implements Runnable {
      * Constructor de la clase
      * @param imagenHuella 
      */
-    public hiloVerificarHuella(JLabel imagenHuella) {
+    public HiloVerificarHuella(JLabel imagenHuella) {
 
         this.imagenHuella = imagenHuella;
-        instituto = new institutoMontenegro();
+        instituto = new InstitutoMontenegro();
 
     }
 
@@ -146,7 +146,7 @@ public class hiloVerificarHuella implements Runnable {
     public boolean identificarHuella() throws IOException {
         try {
 
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             //Obtiene todas las huellas de la bd
             pst = cn.prepareStatement("SELECT nombres,documento,huella FROM estudiante where huella is not null");
@@ -205,7 +205,7 @@ public class hiloVerificarHuella implements Runnable {
         fecha = (Date) instituto.fechaHoy();
         ultimoIngresoFecha = (Date) instituto.ultimaFechaIngreso(documento);
         instituto.actualizarUltimoIngreso(fecha, documento);
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
         try {
             pst = cn.prepareStatement("select * from estudiante where documento=?");
             pst.setString(1, documento);
@@ -291,7 +291,7 @@ public class hiloVerificarHuella implements Runnable {
      */
     private PropertyChangeSupport changeSupport;
 
-    private final institutoMontenegro instituto;
+    private final InstitutoMontenegro instituto;
     private Connection cn;
     private PreparedStatement pst;
     private ResultSet rst;

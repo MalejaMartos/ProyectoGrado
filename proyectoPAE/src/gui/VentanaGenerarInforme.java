@@ -32,8 +32,8 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
-import logica.dataConnection;
-import logica.institutoMontenegro;
+import logica.DataConnection;
+import logica.InstitutoMontenegro;
 
 /**
  *
@@ -178,11 +178,11 @@ public class VentanaGenerarInforme extends JFrame {
     private void jButtonGenerarInformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarInformActionPerformed
         // TODO add your handling code here:
 
-        institutoMontenegro i = new institutoMontenegro();
+        InstitutoMontenegro i = new InstitutoMontenegro();
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         if (validarfechas(fechaInicial, fechaFinal)) {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
             try {
 //                pst = cn.prepareStatement(
 //                        "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grado like(\"6%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -494,7 +494,7 @@ public class VentanaGenerarInforme extends JFrame {
      */
     public void generarInformeOcasionales(Date fechaInicial, Date fechaFinal) {
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
             pst = cn.prepareStatement(
                     "select documento,nombres,apellidos, count(*) as asistencias_Semanales from  estudiante_ocasional WHERE fechaIngreso between ? AND ? GROUP BY documento;");
             pst.setDate(1, (java.sql.Date) fechaInicial);
@@ -566,7 +566,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"6%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -638,7 +638,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"1%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -710,7 +710,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"2%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -782,7 +782,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"3%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -854,7 +854,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"4%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -926,7 +926,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"5%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -998,7 +998,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"7%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -1070,7 +1070,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"8%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -1142,7 +1142,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"9%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -1214,7 +1214,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"10%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");
@@ -1286,7 +1286,7 @@ public class VentanaGenerarInforme extends JFrame {
         Date fechaInicial = formatFecha(jDateChooser1.getDate());
         Date fechaFinal = formatFecha(jDateChooser2.getDate());
         try {
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
 
             pst = cn.prepareStatement(
                     "select est.documento,est.nombres,est.apellidos,est.grado, count(*) as asistencias_Semanales from  instituto_montenegro im JOIN estudiante est ON(im.documentoEstudiante=est.documento) WHERE est.grupo like(\"11%\") and fechaIngreso between ? AND ? GROUP BY est.documento;");

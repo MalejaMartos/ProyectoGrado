@@ -16,11 +16,11 @@ import java.io.ByteArrayInputStream;
  * @author Maria Alejandra Martos
  * @author Juan Jeferson Alape
  */
-public class institutoMontenegro {
+public class InstitutoMontenegro {
 
     private List<Estudiante> estudiantes;
     private Administrador administrador;
-    private dataConnection dataconnection;
+    private DataConnection dataconnection;
     private Date fecha = new Date();
 
     Connection cn;
@@ -34,7 +34,7 @@ public class institutoMontenegro {
      * @param dataconnection
      * @param fecha
      */
-    public institutoMontenegro(List<Estudiante> estudiantes, Administrador administrador, dataConnection dataconnection,
+    public InstitutoMontenegro(List<Estudiante> estudiantes, Administrador administrador, DataConnection dataconnection,
             Date fecha) {
         super();
         this.estudiantes = estudiantes;
@@ -46,7 +46,7 @@ public class institutoMontenegro {
     /**
      *
      */
-    public institutoMontenegro() {
+    public InstitutoMontenegro() {
         super();
     }
 
@@ -86,7 +86,7 @@ public class institutoMontenegro {
      *
      * @return
      */
-    public dataConnection getDataconnection() {
+    public DataConnection getDataconnection() {
         return dataconnection;
     }
 
@@ -94,7 +94,7 @@ public class institutoMontenegro {
      *
      * @param dataconnection
      */
-    public void setDataconnection(dataConnection dataconnection) {
+    public void setDataconnection(DataConnection dataconnection) {
         this.dataconnection = dataconnection;
     }
 
@@ -126,7 +126,7 @@ public class institutoMontenegro {
      */
     public void insertarRegistro(String documento, Date fecha, Date ultimoIngreso) throws SQLException, ParseException {
 
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
 
         pst = cn.prepareStatement(
                 "insert into instituto_montenegro (documentoEstudiante,fechaIngreso,ultimoIngreso) values(?,?,?);");
@@ -155,7 +155,7 @@ public class institutoMontenegro {
      */
     public void insertarRegistro2(int documento, Date fecha) throws SQLException, ParseException {
 
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
 
         pst = cn.prepareStatement(
                 "insert into instituto_montenegro2 (documento,fechaIngreso) values(?,?);");
@@ -196,7 +196,7 @@ public class institutoMontenegro {
      */
     public Date ultimaFechaIngreso(String documento) {
         Date ultimoIngreso = null;
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
         try {
             pst = cn.prepareStatement("select ultimoIngreso from instituto_montenegro WHERE documentoEstudiante=?;");
             pst.setString(1, documento);
@@ -257,7 +257,7 @@ public class institutoMontenegro {
     public boolean guardarEstudiante(String documento, String nombre, String apellidos, String grado,
             int grupo, String zonaAlumno, String jornada, ByteArrayInputStream datosHuella, int tamanoHuella) throws SQLException, ParseException {
 
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
         pst = cn.prepareStatement("insert into estudiante (documento,nombres,apellidos,grado,grupo,"
                 + "zonaAlumno,jornada,huella) values(?,?,?,?,?,?,?,?)");
 
@@ -305,7 +305,7 @@ public class institutoMontenegro {
     public boolean actualizarEstudiante(String documento, String nombre, String apellidos, String grado,
             int grupo, String zonaAlumno, String jornada, ByteArrayInputStream datosHuella, int tamanoHuella) throws SQLException {
 
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
         pst = cn.prepareStatement(
                 "update estudiante set documento=?,nombres=?,apellidos=?,grado=?,grupo=?,zonaAlumno=?,jornada=?,huella=? where documento=?");
 

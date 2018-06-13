@@ -19,8 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import logica.dataConnection;
-import logica.institutoMontenegro;
+import logica.DataConnection;
+import logica.InstitutoMontenegro;
 
 /**
  *
@@ -31,7 +31,7 @@ import logica.institutoMontenegro;
 public class VentanaInciarSesionDocumento extends JFrame {
 
     String doc;
-    institutoMontenegro instituto;
+    InstitutoMontenegro instituto;
     // atributos para el manejo de la base de datos
     PreparedStatement pst;
     Connection cn;
@@ -44,7 +44,7 @@ public class VentanaInciarSesionDocumento extends JFrame {
     public VentanaInciarSesionDocumento() {
         initComponents();
         this.getContentPane().setBackground(Color.white);
-        instituto=new institutoMontenegro();
+        instituto=new InstitutoMontenegro();
     }
 
     /**
@@ -276,7 +276,7 @@ public class VentanaInciarSesionDocumento extends JFrame {
                     Date fecha; // TODO Auto-generated catch block
                     fecha = (Date) instituto.fechaHoy();
 
-                    cn = dataConnection.conexion();
+                    cn = DataConnection.conexion();
 
                     try {
                         pst = cn.prepareStatement("insert into estudiante_ocasional(documento,nombres,apellidos,fechaIngreso)values (?,?,?,?)");
@@ -326,7 +326,7 @@ public class VentanaInciarSesionDocumento extends JFrame {
             ultimoIngresoFecha = (Date) instituto.ultimaFechaIngreso(documento);
 
             instituto.actualizarUltimoIngreso(fecha, documento);
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
             try {
                 pst = cn.prepareStatement("select * from estudiante where documento=?");
                 pst.setString(1, documento);
@@ -483,7 +483,7 @@ public class VentanaInciarSesionDocumento extends JFrame {
         fecha = (Date) instituto.fechaHoy();
         ultimoIngresoFecha = (Date) instituto.ultimaFechaIngreso(doc);
         instituto.actualizarUltimoIngreso(fecha, doc);
-        cn = dataConnection.conexion();
+        cn = DataConnection.conexion();
         try {
             pst = cn.prepareStatement("select * from estudiante_ocasional where documento=?");
             pst.setString(1, doc);

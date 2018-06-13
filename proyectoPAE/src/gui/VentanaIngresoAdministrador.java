@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import logica.dataConnection;
+import logica.DataConnection;
 
 /**
  *
@@ -170,7 +170,7 @@ public class VentanaIngresoAdministrador extends JFrame {
 
         } else {
             String password = new String(arrayC);
-            cn = dataConnection.conexion();
+            cn = DataConnection.conexion();
             try {
                 pst = cn.prepareStatement("select * from administrador where nickname=? and password=?");
                 pst.setString(1, nickname);
