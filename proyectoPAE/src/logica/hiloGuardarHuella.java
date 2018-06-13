@@ -148,7 +148,7 @@ public class hiloGuardarHuella implements Runnable {
                         // captura de huellas
                         Reclutador.clear();
                         stop();
-                        EstadoHuellas();
+                        estadoHuellas();
                         setTemplate(null);
                         JOptionPane.showMessageDialog(null, "La Plantilla de la Huella no pudo ser creada, Repita el Proceso", "Inscripcion de Huellas Dactilares", JOptionPane.ERROR_MESSAGE);
                         start();
@@ -262,7 +262,7 @@ public class hiloGuardarHuella implements Runnable {
         
     }
 
-    public void EstadoHuellas() {
+    public void estadoHuellas() {
         System.out.println("Muestra de Huellas Necesarias para Guardar Template " + Reclutador.getFeaturesNeeded());
 
     }
