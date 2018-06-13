@@ -35,7 +35,7 @@ import javax.swing.SwingUtilities;
  *
  * @author Mateo
  */
-public class HiloGuardarHuella implements Runnable {
+public class hiloGuardarHuella implements Runnable {
 
     // Varible que permite iniciar el dispositivo de lector de huella conectado
     // con sus distintos metodos.
@@ -54,7 +54,7 @@ public class HiloGuardarHuella implements Runnable {
     public DPFPFeatureSet featuresinscripcion;
     private JButton botonGuardar;
 
-    public HiloGuardarHuella(JLabel imagenHuella, JButton botonGuardar) {
+    public hiloGuardarHuella(JLabel imagenHuella, JButton botonGuardar) {
         instituto = new institutoMontenegro();
         this.imagenHuella = imagenHuella;
         this.botonGuardar = botonGuardar;
@@ -68,7 +68,7 @@ public class HiloGuardarHuella implements Runnable {
         Lector.addDataListener(new DPFPDataAdapter() {
             @Override
             public void dataAcquired(final DPFPDataEvent e) {
-                ProcesarCaptura(e.getSample());
+                procesarCaptura(e.getSample());
 //                SwingUtilities.invokeLater(new Runnable() {
 //                    public void run() {
 //                        // EnviarTexto("La Huella Digital ha sido Capturada");
@@ -102,7 +102,7 @@ public class HiloGuardarHuella implements Runnable {
 
     }
 
-    public void ProcesarCaptura(DPFPSample sample) {
+    public void procesarCaptura(DPFPSample sample) {
         // Procesar la muestra de la huella y crear un conjunto de
         // caracter�sticas con el proposito de inscripcion.
         featuresinscripcion = extraerCaracteristicas(sample, DPFPDataPurpose.DATA_PURPOSE_ENROLLMENT);
@@ -118,8 +118,8 @@ public class HiloGuardarHuella implements Runnable {
                 // plantilla a crear
 
                 // Dibuja la huella dactilar capturada.
-                Image image = CrearImagenHuella(sample);
-                DibujarHuella(image);
+                Image image = crearImagenHuella(sample);
+                dibujarHuella(image);
 
             } catch (DPFPImageQualityException ex) {
                 System.err.println("Error: " + ex.getMessage());
@@ -158,11 +158,11 @@ public class HiloGuardarHuella implements Runnable {
         }
     }
 
-    public Image CrearImagenHuella(DPFPSample sample) {
+    public Image crearImagenHuella(DPFPSample sample) {
         return DPFPGlobal.getSampleConversionFactory().createImage(sample);
     }
 
-    public void DibujarHuella(Image image) {
+    public void dibujarHuella(Image image) {
         imagenHuella.setIcon(new ImageIcon(
                 image.getScaledInstance(imagenHuella.getWidth(), imagenHuella.getHeight(), Image.SCALE_DEFAULT)));
 

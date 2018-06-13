@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
-import logica.HiloGuardarHuella;
+import logica.hiloGuardarHuella;
 import logica.dataConnection;
 import logica.institutoMontenegro;
 
@@ -75,7 +75,7 @@ public class VentanaGestionEstudiante extends JFrame {
     /**
      * 
      */
-    HiloGuardarHuella hilo;
+    hiloGuardarHuella hilo;
 
     static ByteArrayInputStream datosHuella;
     static Integer tamanoHuella;
@@ -108,7 +108,7 @@ public class VentanaGestionEstudiante extends JFrame {
         initComponents();
         this.getContentPane().setBackground(Color.white);
         jTableResultado.setModel(modelo);
-        hilo = new HiloGuardarHuella(jLabelImagenHuella, jButtonGuardar);
+        hilo = new hiloGuardarHuella(jLabelImagenHuella, jButtonGuardar);
 
     }
 
