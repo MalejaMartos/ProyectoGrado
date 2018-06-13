@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import com.digitalpersona.onetouch.DPFPGlobal;
 import com.digitalpersona.onetouch.capture.DPFPCapture;
@@ -102,7 +102,7 @@ public class VentanaIngresoEstudiante extends JFrame {
         jLabelContenido2.setText("<html>Si desea registrar el ingreso con el documento de identidad del estudiante hacer clic en el botón Registrar Ingreso por Documento.</html>");
 
         jPanelHuella.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelHuella.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Huella Dactilar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jPanelHuella.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Huella Dactilar", 2, 0, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jPanelContenedorHuella.setBackground(new java.awt.Color(255, 255, 255));
 

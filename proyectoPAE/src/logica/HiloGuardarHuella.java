@@ -5,7 +5,7 @@
  */
 package logica;
 
-import GUI.VentanaGestionEstudiante;
+import gui.VentanaGestionEstudiante;
 import com.digitalpersona.onetouch.DPFPDataPurpose;
 import com.digitalpersona.onetouch.DPFPFeatureSet;
 import com.digitalpersona.onetouch.DPFPGlobal;

@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import java.awt.Color;
@@ -81,7 +81,7 @@ public class VentanaAdministrador extends JFrame {
         jSeparador1 = new Separator();
         jButtonModificarDatos = new JButton();
         jSeparador5 = new Separator();
-        GenerarInforme = new javax.swing.JButton();
+        generarInforme = new javax.swing.JButton();
         jSeparador6 = new Separator();
         jButtonCargarListado = new javax.swing.JButton();
         jSeparador7 = new Separator();
@@ -123,17 +123,17 @@ public class VentanaAdministrador extends JFrame {
         jToolBarOpcionsAdmin.add(jButtonModificarDatos);
         jToolBarOpcionsAdmin.add(jSeparador5);
 
-        GenerarInforme.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        GenerarInforme.setText("Generar Informe");
-        GenerarInforme.setFocusable(false);
-        GenerarInforme.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        GenerarInforme.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        GenerarInforme.addActionListener(new java.awt.event.ActionListener() {
+        generarInforme.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        generarInforme.setText("Generar Informe");
+        generarInforme.setFocusable(false);
+        generarInforme.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        generarInforme.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        generarInforme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenerarInformeActionPerformed(evt);
+                generarInformeActionPerformed(evt);
             }
         });
-        jToolBarOpcionsAdmin.add(GenerarInforme);
+        jToolBarOpcionsAdmin.add(generarInforme);
         jToolBarOpcionsAdmin.add(jSeparador6);
 
         jButtonCargarListado.setText("Cargar Archivo");
@@ -189,11 +189,11 @@ public class VentanaAdministrador extends JFrame {
      * 
      * @param evt 
      */
-    private void GenerarInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarInformeActionPerformed
+    private void generarInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarInformeActionPerformed
 
         VentanaGenerarInforme.getInstanceSingleton().setVisible(true);
 
-    }//GEN-LAST:event_GenerarInformeActionPerformed
+    }//GEN-LAST:event_generarInformeActionPerformed
 
     /**
      * 
@@ -451,7 +451,7 @@ public class VentanaAdministrador extends JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton GenerarInforme;
+    private javax.swing.JButton generarInforme;
     private javax.swing.JButton jButtonCargarListado;
     private javax.swing.JButton jButtonCrearEstudiante;
     private javax.swing.JButton jButtonModificarDatos;
