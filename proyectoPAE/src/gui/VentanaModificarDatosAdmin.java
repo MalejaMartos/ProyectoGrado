@@ -306,7 +306,11 @@ public class VentanaModificarDatosAdmin extends JFrame {
 				pst = cn.prepareStatement(
 						"update administrador set nickname=?,password=?,nombres=?,apellidos=? where password=?");
 				pst.setString(1, jTextFieldNombreUsuario.getText());
-				pst.setString(2, passwordNuevo);
+				 if(arrayC1.length==0){
+                                pst.setString(2, passwordActual);
+                                }else{
+                                    pst.setString(2, passwordNuevo);
+                                }
 				pst.setString(3, jTextFieldNombres.getText());
 				pst.setString(4, jTextFieldApellidos.getText());
                                 pst.setString(5, passwordActual);
